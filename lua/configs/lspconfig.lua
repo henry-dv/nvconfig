@@ -1,7 +1,8 @@
 -- EXAMPLE 
-local on_attach = require("nvchad.configs.lspconfig").on_attach
-local on_init = require("nvchad.configs.lspconfig").on_init
-local capabilities = require("nvchad.configs.lspconfig").capabilities
+local base = require("nvchad.configs.lspconfig")
+local on_attach = base.on_attach
+local on_init = base.on_init
+local capabilities = base.capabilities
 
 local lspconfig = require "lspconfig"
 local servers = { "html", "cssls" }
@@ -19,5 +20,14 @@ end
 lspconfig.tsserver.setup {
   on_attach = on_attach,
   on_init = on_init,
+  capabilities = capabilities,
+}
+
+-- clangd
+lspconfig.clangd.setup {
+  on_attach = function(client, bufnr)
+    client.server_capabilities.signatureHelpProvider = false
+    on_attach(client, bufnr)
+  end,
   capabilities = capabilities,
 }

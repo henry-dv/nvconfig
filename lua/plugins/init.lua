@@ -1,11 +1,11 @@
 return {
-  {
-    "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
-    config = function()
-      require "configs.conform"
-    end,
-  },
+  -- {
+  --   "stevearc/conform.nvim",
+  --   event = 'BufWritePre', -- uncomment for format on save
+  --   config = function()
+  --     require "configs.conform"
+  --   end,
+  -- },
 
   {
     "neovim/nvim-lspconfig",
@@ -16,11 +16,20 @@ return {
   },
 
   {
+    "nvimtools/none-ls.nvim",
+    event = "VeryLazy",
+    opts = function()
+      return require "configs.none-ls"
+    end,
+  },
+
+  {
   	"williamboman/mason.nvim",
   	opts = {
   		ensure_installed = {
   			"lua-language-server", "stylua",
-  			"html-lsp", "css-lsp" , "prettier"
+  			"html-lsp", "css-lsp" , "prettier",
+        "clangd", "clang-format"
   		},
   	},
   },
