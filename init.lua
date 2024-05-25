@@ -12,6 +12,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+vim.cmd [[
+  autocmd BufRead,BufNewFile *.vert,*.frag set filetype=glsl
+]]
+
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 

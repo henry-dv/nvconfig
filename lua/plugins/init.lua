@@ -29,7 +29,8 @@ return {
   		ensure_installed = {
   			"lua-language-server", "stylua",
   			"html-lsp", "css-lsp" , "prettier",
-        "clangd", "clang-format"
+        "clangd", "clang-format",
+        "glslls"
   		},
   	},
   },
@@ -39,7 +40,8 @@ return {
   	opts = {
   		ensure_installed = {
   			"vim", "lua", "vimdoc",
-       "html", "css"
+        "html", "css",
+        "glsl"
   		},
   	},
   },

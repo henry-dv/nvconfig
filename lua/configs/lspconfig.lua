@@ -31,3 +31,9 @@ lspconfig.clangd.setup {
   end,
   capabilities = capabilities,
 }
+
+-- glslls
+lspconfig.glslls.setup {
+  filetypes = {"glsl", "vert", "frag"},
+  cmd = { 'glslls', '--stdin', '--target-env', 'opengl' }
+}
