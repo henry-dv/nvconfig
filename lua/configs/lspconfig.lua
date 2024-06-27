@@ -5,7 +5,7 @@ local on_init = base.on_init
 local capabilities = base.capabilities
 
 local lspconfig = require "lspconfig"
-local servers = { "html", "cssls" }
+local servers = { "html", "cssls", "clangd", "glslls" }
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
